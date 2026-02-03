@@ -5,7 +5,7 @@ import { menuItems } from './data/db.ts'
 import useOrder from './hooks/useOrder.ts'
 
 function App() {
-  const { order,tip, setTip, addItem,removeItem } = useOrder()
+  const { order,tip, setTip, addItem,removeItem,removeAllItems } = useOrder()
   return (
     <>
       <header className="bg-gray-800 text-white p-4">
@@ -35,6 +35,7 @@ function App() {
               order={order}
               tip={tip}
               setTip={setTip}
+              removeAllItems={removeAllItems}
             />
           </div>
           

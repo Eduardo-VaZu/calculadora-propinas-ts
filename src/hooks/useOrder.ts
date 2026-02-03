@@ -27,6 +27,10 @@ export default function useOrder() {
         setOrder(prev => prev.filter(item => item.id !== id))
     }
 
+    const removeAllItems = () => {
+        setOrder([])
+    }
+
     return {
         order,
         tip,
@@ -34,6 +38,7 @@ export default function useOrder() {
         addItem,
         countPrice,
         removeItem,
+        removeAllItems
     }
 
 }
