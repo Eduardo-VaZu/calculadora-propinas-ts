@@ -28,6 +28,7 @@ export default function useOrder() {
     }
 
     const removeAllItems = () => {
+        setTip(0)
         setOrder([])
     }
 

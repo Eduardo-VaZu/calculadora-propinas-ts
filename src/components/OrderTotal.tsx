@@ -16,19 +16,23 @@ export default function OrderTotal({ order, tip, setTip, removeAllItems }: Order
     return (
         <>
             <div className="space-y-3 bg-gray-200 p-4 rounded-md">
-                <OrderTipForm setTip={setTip} />
+                <OrderTipForm setTip={setTip} tip={tip} />
                 <p className="flex flex-col">
                     <span className="text-lg font-semibold">SubTotal:  {formatPrice(subtotal)}</span>
                     <span className="text-lg font-semibold">Propina:  {formatPrice(tipAmount)}</span>
                     <span className="text-lg font-bold flex justify-end">Total:  {formatPrice(subtotal + tipAmount)}</span>
                 </p>
                 <div className="flex flex-row justify-between">
-                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded disabled:opacity-30"
                         onClick={() => removeAllItems()}
+                        disabled={order.length=== 0}
                     >
                         Limpiar Consumo
                     </button>
-                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded disabled:opacity-30"
+                        onClick={() => removeAllItems()}
+                        disabled={order.length=== 0}
+                    >
                         Pagar
                     </button>
                 </div>
